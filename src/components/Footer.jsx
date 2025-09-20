@@ -1,7 +1,7 @@
 import React from 'react';
 import { Home, Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin, Heart } from 'lucide-react';
 
-const Footer: React.FC = () => {
+const Footer = () => {
   const quickLinks = [
     { name: 'About Us', href: '#about' },
     { name: 'Room Types', href: '#rooms' },

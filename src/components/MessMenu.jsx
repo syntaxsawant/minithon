@@ -1,25 +1,10 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, Star, Utensils, Leaf, Award } from 'lucide-react';
 
-interface MealItem {
-  name: string;
-  type: 'veg' | 'non-veg' | 'vegan';
-  rating: number;
-}
-
-interface DayMenu {
-  day: string;
-  date: string;
-  breakfast: MealItem[];
-  lunch: MealItem[];
-  snacks: MealItem[];
-  dinner: MealItem[];
-}
-
-const MessMenu: React.FC = () => {
+const MessMenu = () => {
   const [selectedDay, setSelectedDay] = useState(0);
 
-  const weeklyMenu: DayMenu[] = [
+  const weeklyMenu = [
     {
       day: 'Monday',
       date: '2024-11-18',
@@ -193,7 +178,7 @@ const MessMenu: React.FC = () => {
     { name: 'Dinner', time: '7:00 PM - 10:00 PM', icon: '🌙' }
   ];
 
-  const getTypeIcon = (type: string) => {
+  const getTypeIcon = (type) => {
     switch (type) {
       case 'veg':
         return <Leaf className="h-4 w-4 text-green-500" />;
@@ -206,7 +191,7 @@ const MessMenu: React.FC = () => {
     }
   };
 
-  const getTypeColor = (type: string) => {
+  const getTypeColor = (type) => {
     switch (type) {
       case 'veg':
         return 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 border-green-200 dark:border-green-800';
@@ -219,7 +204,7 @@ const MessMenu: React.FC = () => {
     }
   };
 
-  const renderStars = (rating: number) => {
+  const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, index) => (
       <Star
         key={index}

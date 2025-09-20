@@ -1,25 +1,12 @@
 import React, { useState } from 'react';
 import { Filter, Grid, List, Star, Users, Wifi, Car, Utensils } from 'lucide-react';
 
-interface Room {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-  type: string;
-  capacity: number;
-  amenities: string[];
-  rating: number;
-  reviews: number;
-  available: boolean;
-}
-
-const RoomListings: React.FC = () => {
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+const RoomListings = () => {
+  const [viewMode, setViewMode] = useState('grid');
   const [filterType, setFilterType] = useState('all');
   const [sortBy, setSortBy] = useState('price');
 
-  const rooms: Room[] = [
+  const rooms = [
     {
       id: 1,
       title: 'Deluxe Single Room',
@@ -109,7 +96,7 @@ const RoomListings: React.FC = () => {
       }
     });
 
-  const getAmenityIcon = (amenity: string) => {
+  const getAmenityIcon = (amenity) => {
     switch (amenity.toLowerCase()) {
       case 'wifi':
         return <Wifi className="h-4 w-4" />;

@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
-interface Review {
-  id: number;
-  name: string;
-  room: string;
-  rating: number;
-  review: string;
-  date: string;
-  avatar: string;
-}
-
-const Testimonials: React.FC = () => {
+const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const reviews: Review[] = [
+  const reviews = [
     {
       id: 1,
       name: 'Sarah Johnson',
@@ -79,7 +69,7 @@ const Testimonials: React.FC = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + reviews.length) % reviews.length);
   };
 
-  const renderStars = (rating: number) => {
+  const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, index) => (
       <Star
         key={index}

@@ -1,24 +1,11 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, MapPin, Users, ChevronLeft, ChevronRight, Plus } from 'lucide-react';
 
-interface Event {
-  id: number;
-  title: string;
-  description: string;
-  date: string;
-  time: string;
-  location: string;
-  category: 'cultural' | 'academic' | 'sports' | 'social';
-  attendees: number;
-  maxAttendees?: number;
-  image: string;
-}
-
-const EventCalendar: React.FC = () => {
+const EventCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const events: Event[] = [
+  const events = [
     {
       id: 1,
       title: 'Annual Cultural Fest - DormFest 2024',
@@ -100,7 +87,7 @@ const EventCalendar: React.FC = () => {
     { value: 'social', label: 'Social', color: 'bg-pink-500' }
   ];
 
-  const getCategoryColor = (category: string) => {
+  const getCategoryColor = (category) => {
     switch (category) {
       case 'cultural':
         return 'bg-purple-100 dark:bg-purple-900/20 text-purple-800 dark:text-purple-300 border-purple-200 dark:border-purple-800';
@@ -115,7 +102,7 @@ const EventCalendar: React.FC = () => {
     }
   };
 
-  const formatDate = (dateString: string) => {
+  const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
       weekday: 'long',
@@ -125,13 +112,13 @@ const EventCalendar: React.FC = () => {
     });
   };
 
-  const isToday = (dateString: string) => {
+  const isToday = (dateString) => {
     const today = new Date().toDateString();
     const eventDate = new Date(dateString).toDateString();
     return today === eventDate;
   };
 
-  const isUpcoming = (dateString: string) => {
+  const isUpcoming = (dateString) => {
     const today = new Date();
     const eventDate = new Date(dateString);
     return eventDate > today;

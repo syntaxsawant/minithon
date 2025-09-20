@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapPin, Bus, Train, Car, Clock } from 'lucide-react';
 
-const LocationMap: React.FC = () => {
+const LocationMap = () => {
   const nearbyPlaces = [
     {
       name: 'University Campus',

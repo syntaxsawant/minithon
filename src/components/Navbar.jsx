@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X, Moon, Sun, Home } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
 

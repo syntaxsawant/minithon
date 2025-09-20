@@ -1,19 +1,10 @@
 import React, { useState } from 'react';
 import { Calendar, AlertTriangle, Info, CheckCircle, Clock } from 'lucide-react';
 
-interface Notice {
-  id: number;
-  title: string;
-  content: string;
-  type: 'info' | 'warning' | 'success' | 'announcement';
-  date: string;
-  urgent: boolean;
-}
-
-const Notices: React.FC = () => {
+const Notices = () => {
   const [selectedType, setSelectedType] = useState('all');
 
-  const notices: Notice[] = [
+  const notices = [
     {
       id: 1,
       title: 'Semester End Examination Schedule',
@@ -80,7 +71,7 @@ const Notices: React.FC = () => {
     }
   ];
 
-  const getIcon = (type: string) => {
+  const getIcon = (type) => {
     switch (type) {
       case 'warning':
         return <AlertTriangle className="h-6 w-6 text-yellow-500" />;
@@ -95,7 +86,7 @@ const Notices: React.FC = () => {
     }
   };
 
-  const getTypeStyle = (type: string) => {
+  const getTypeStyle = (type) => {
     switch (type) {
       case 'warning':
         return 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800';
@@ -110,7 +101,7 @@ const Notices: React.FC = () => {
     }
   };
 
-  const formatDate = (dateString: string) => {
+  const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
       year: 'numeric',

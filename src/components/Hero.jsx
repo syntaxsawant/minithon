@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Star, MapPin, Users } from 'lucide-react';
 
-const Hero: React.FC = () => {
+const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with gradient overlay */}

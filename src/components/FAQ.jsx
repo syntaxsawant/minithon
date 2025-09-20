@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
 import { ChevronDown, Search, HelpCircle } from 'lucide-react';
 
-interface FAQItem {
-  id: number;
-  category: string;
-  question: string;
-  answer: string;
-}
-
-const FAQ: React.FC = () => {
-  const [openItems, setOpenItems] = useState<number[]>([1]);
+const FAQ = () => {
+  const [openItems, setOpenItems] = useState([1]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const faqItems: FAQItem[] = [
+  const faqItems = [
     {
       id: 1,
       category: 'general',
@@ -103,7 +96,7 @@ const FAQ: React.FC = () => {
     return matchesSearch && matchesCategory;
   });
 
-  const toggleItem = (id: number) => {
+  const toggleItem = (id) => {
     setOpenItems(prev => 
       prev.includes(id) 
         ? prev.filter(item => item !== id)

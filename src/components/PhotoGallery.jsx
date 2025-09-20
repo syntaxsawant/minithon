@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 
-interface Photo {
-  id: number;
-  src: string;
-  category: string;
-  title: string;
-}
-
-const PhotoGallery: React.FC = () => {
+const PhotoGallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const photos: Photo[] = [
+  const photos = [
     {
       id: 1,
       src: 'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1200',
@@ -82,7 +75,7 @@ const PhotoGallery: React.FC = () => {
     ? photos 
     : photos.filter(photo => photo.category === selectedCategory);
 
-  const openModal = (photo: Photo) => {
+  const openModal = (photo) => {
     setSelectedPhoto(photo);
     setCurrentIndex(filteredPhotos.findIndex(p => p.id === photo.id));
   };
@@ -127,7 +120,7 @@ const PhotoGallery: React.FC = () => {
                   : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
               }`}
             >
-              {categoryLabels[category as keyof typeof categoryLabels]}
+              {categoryLabels[category]}
             </button>
           ))}
         </div>
